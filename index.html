@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mariam Fatima — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- THEME TOGGLE -->
+  <div class="theme-toggle">
+    <button id="toggleTheme">🌙</button>
+  </div>
+
+  <!-- PARTICLE SETTINGS BUTTON -->
+  <div class="particle-settings-btn" id="settingsBtn">⚙</div>
+
+  <!-- PARTICLE SETTINGS PANEL -->
+  <div id="particlePanel" class="particle-panel">
+    <h3>Particle Settings</h3>
+
+    <!-- Toggle -->
+    <div class="row">
+      <label class="switch">
+        <input type="checkbox" id="toggleParticles" checked>
+        <span class="slider"></span>
+      </label>
+      <span class="label-text">Particles On/Off</span>
+    </div>
+
+    <br>
+
+    <!-- Density Slider -->
+    <label>Particle Density</label>
+    <input type="range" id="densitySlider" min="20" max="200" value="100">
+    <p class="density-value">Density: <span id="densityValue">100</span></p>
+  </div>
+
+  <!-- BACKGROUNDS -->
+  <div class="animated-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="name">Mariam Fatima</h1>
+    <p class="subtitle">Computer Science Engineer | Developer | Innovator | AI ML Enthusiast</p>
+
+    <div class="links">
+      <a href="mailto:mariam37009@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/mariam-fatima-a85266319" target="_blank">LinkedIn</a>
+      <a href="https://github.com/MariamF35" target="_blank">GitHub</a>
+      <a class="resume-btn" href="/mnt/data/MariamFatima2025.pdf" target="_blank">Resume</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <section>
+      <h2>Profile</h2>
+      <p>
+        A highly motivated and creative Computer Science engineering student with a strong academic record, hands-on project experience, and a deep interest 	in data science, AI, and software development. Passionate about making a sustainable impact through technology, thriving in collaborative settings, 	and continuously exploring new challenges. Active contributor and problem-solver, with proven leadership in both technical and extracurricular 	activities. Skilled in building apps, dashboards, ML models, etc.
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p><strong>Stanley College of Engineering and Technology for Women, India</strong></p>
+      <p>Bachelor of Engineering in Computer Science (CGPA: 8.2, 1st year) — 2024–2028</p>
+<br>
+      <p><strong>The Indian High School, Dubai, UAE</strong></p>
+      <p>Higher Secondary Education (CGPA: 8.7) — 2022–2024</p>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <h3>MNIST Image Classifier</h3>
+          <p>Digit classification using multiple ML algorithms, deployed with Streamlit, as a part of a programme in IIIT, Hyderabad.</p>
+          <a href="https://github.com/MariamF35/IIITH_Student_Training_Program_Assignments_Solutions/blob/main/STP_Module_01_Lab_03_Data_Augmentation_by_Om.ipynb" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Bio-Medical Data Analysis App</h3>
+          <p>PPG-based biosensor application for HR & RR analysis with visualization.</p>
+          <a href="https://github.com/MariamF35/ppg-hr-rr-app" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Homomorphic RSA Encryption</h3>
+          <p>Secure encryption system implementing Homomorphic RSA concepts.</p>
+          <a href="https://github.com/MariamF35/Homomorphic-Encrytion-RSA-Algorithm-" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Real Estate Management System</h3>
+          <p>OOP-based Python system for admin/user management and listing operations.</p>
+          <a href="https://github.com/MariamF35/Real_Estate_Project_2023" target="_blank">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>DBMS Notes Resource</h3>
+          <p>Concept explanations and well-structured DBMS notes for peer learning.</p>
+          <a href="https://github.com/MariamF35/dbms-notes" target="_blank">View Resource</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <p><strong>Languages:</strong> Python, Java, C, HTML/CSS, JavaScript, MySQL</p>
+      <p><strong>Tools:</strong> VS Code, Google Colab, GCP, Streamlit</p>
+      <p><strong>Frameworks:</strong> Scikit-learn, WordPress</p>
+      <p><strong>Domains:</strong> Data Science, Machine Learning, Full-Stack Apps, DSA</p>
+    </section>
+
+    <section>
+      <h2>Leadership & Extracurricular</h2>
+      <p><strong>College Tech Society</strong> (2024–Present) — Volunteer</p>
+      <p>Hackathons, coding competitions, event planning, and technical sessions.</p>
+
+      <p><strong>Sports & Academic Clubs</strong> — Chief Editor, The Indian High School</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
