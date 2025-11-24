@@ -270,3 +270,36 @@ input:checked + .slider:before{
     grid-template-columns: 1fr;
   }
 }
+
+/* ================= FINAL MOBILE BUTTON FIX ================= */
+
+/* Very small phones (Galaxy A-series, old iPhones) */
+@media (max-width: 370px) {
+  .links {
+    grid-template-columns: 1fr;  /* 1 button per row */
+    gap: 14px;
+  }
+
+  .links a {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Normal phones (iPhone X, Samsung S20, Pixel etc.) */
+@media (min-width: 371px) and (max-width: 480px) {
+  .links {
+    grid-template-columns: repeat(2, 1fr);  /* 2 per row */
+    gap: 14px;
+    justify-items: center;
+  }
+
+  .links a {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
