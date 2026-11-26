@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Exploring how large language models can understand a writer’s scene and surface relevant visual references."><title>Building StoryCosmos: Where AI Meets Creative Writing | Mariam Fatima</title><style>
+:root{--bg:#151313;--surface:#241b1b;--text:#fff8f7;--muted:#c4b5b5;--accent:#f87171;--border:rgba(255,255,255,.12);--nav:rgba(21,19,19,.92);--code:#211919}
+[data-theme="light"]{--bg:#fff8f7;--surface:#fff;--text:#292121;--muted:#6b5b5b;--accent:#b91c1c;--border:rgba(127,29,29,.15);--nav:rgba(255,248,247,.94);--code:#fff0ef}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.8 Arial,sans-serif;transition:.3s}
+a{color:var(--accent)}.top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:16px 8%;background:var(--nav);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:4}
+.brand{font-size:20px;font-weight:bold;text-decoration:none}.actions{display:flex;gap:18px;align-items:center}.back{color:var(--text);text-decoration:none;font-size:14px}
+button{border:1px solid var(--border);border-radius:30px;padding:9px 14px;background:var(--surface);color:var(--text);cursor:pointer}
+.wrap{width:min(900px,88%);margin:60px auto 85px}.head{max-width:760px;margin:0 auto 38px}
+.cat{display:inline-block;color:var(--accent);border:1px solid var(--accent);border-radius:30px;padding:4px 13px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.13;margin:20px 0}.dek{font-size:19px;color:var(--muted)}
+.meta{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-top:18px}
+.art{height:210px;border:1px solid var(--border);border-radius:18px;background:radial-gradient(circle at 75% 20%,#f8717133,transparent 38%),var(--surface);display:grid;place-items:center;margin-bottom:42px}
+.art span{font-size:100px;font-weight:bold;color:var(--accent)}
+.layout{display:grid;grid-template-columns:185px 1fr;gap:40px}.toc{position:sticky;top:90px;align-self:start;background:var(--surface);border:1px solid var(--border);padding:17px;border-radius:12px}
+.toc b{color:var(--accent);display:block;margin-bottom:8px}.toc a{display:block;text-decoration:none;color:var(--muted);font-size:13px;padding:4px 0}
+article h2{font-size:27px;line-height:1.3;margin:38px 0 12px;scroll-margin-top:90px}article p{color:var(--muted);margin-bottom:17px}
+article ul{padding-left:24px;color:var(--muted);margin-bottom:20px}article li{margin:8px 0}
+.callout{border-left:3px solid var(--accent);background:var(--surface);padding:17px 20px;margin:24px 0;color:var(--muted)}
+code,pre{background:var(--code);border:1px solid var(--border);border-radius:7px}code{padding:2px 5px;color:var(--accent)}
+.end{border-top:1px solid var(--border);margin-top:40px;padding-top:20px;color:var(--muted)}
+.related{margin-top:60px}.related h2{margin-bottom:16px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card{display:block;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text)}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}.card small{display:block;color:var(--accent);margin-bottom:8px}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:6}
+footer{text-align:center;padding:25px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}
+@media(max-width:700px){.top{padding:14px 5%}.wrap{margin-top:38px}.layout{grid-template-columns:1fr;gap:22px}.toc{position:static}.toc a{display:inline-block;margin-right:10px}.cards{grid-template-columns:1fr}.art{height:150px}.art span{font-size:70px}}
+</style></head>
+<body><div class="progress" id="progress"></div>
+<header class="top"><a class="brand" href="../index.html">Mariam Fatima.</a><div class="actions"><a class="back" href="../index.html#blog">← Back to Blog</a><button id="theme">☀️ Light</button></div></header>
+<main class="wrap"><header class="head"><span class="cat">Artificial Intelligence</span><h1>Building StoryCosmos: Where AI Meets Creative Writing</h1><p class="dek">Exploring how large language models can understand a writer’s scene and surface relevant visual references.</p><div class="meta"><span>By Mariam Fatima</span><span>July 2026</span><span>6 min read</span></div></header>
+<div class="art" aria-hidden="true"><span>SC</span></div>
+<div class="layout"><aside class="toc"><b>In this article</b><a href="#idea">The idea</a><a href="#pipeline">How the pipeline works</a><a href="#editor">Designing the editor</a><a href="#lessons">What I learned</a></aside><article><h2 id="idea">The idea</h2><p>StoryCosmos is an AI-assisted writing application designed to make visual discovery part of the writing process. As a writer develops a scene, the application analyzes the text and surfaces relevant visual references, including images and videos.</p><h2 id="pipeline">How the pipeline works</h2><p>A debounced text-analysis pipeline waits until the writer pauses before sending text for analysis. An LLM extracts scene context, subjects, environment, objects, mood and visual-search keywords. Those keywords are used to query multiple media APIs in parallel, while backend caching helps reduce redundant requests.</p><h2 id="editor">Designing the editor</h2><p>The application uses a React/Tiptap editor with a live visual panel. The aim is to help writers explore references without leaving the writing interface, while maintaining visual continuity as the scene develops.</p><h2 id="lessons">What I learned</h2><p>This project brought together frontend development, LLM integration, API orchestration and product thinking. It highlighted the importance of latency, debouncing, caching and presenting AI-generated results without interrupting the user's workflow.</p>
+<div class="end">Thanks for reading. Connect with me on <a href="https://www.linkedin.com/in/mariamf136/" target="_blank" rel="noopener">LinkedIn</a> or explore my work on <a href="https://github.com/MariamF35" target="_blank" rel="noopener">GitHub</a>.</div></article></div>
+<section class="related"><h2>Keep reading</h2><div class="cards">
+    <a class="card" href="storycosmos.html"><small>ARTIFICIAL INTELLIGENCE</small><b>Building StoryCosmos: Where AI Meets Creative Writing</b></a>
+    <a class="card" href="computer-vision.html"><small>COMPUTER VISION</small><b>Exploring Computer Vision Beyond Object Detection</b></a>
+    <a class="card" href="machine-learning.html"><small>MACHINE LEARNING</small><b>From Data to Decisions: My Machine Learning Journey</b></a></div></section></main>
+<footer>© 2026 Mariam Fatima. All Rights Reserved.</footer>
+<script>
+const root=document.documentElement,btn=document.getElementById('theme');
+function setTheme(t){root.setAttribute('data-theme',t);btn.textContent=t==='light'?'🌙 Dark':'☀️ Light';localStorage.setItem('portfolio-theme',t)}
+setTheme(localStorage.getItem('portfolio-theme')||'dark');
+btn.addEventListener('click',()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark'));
+const bar=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max>0?scrollY/max*100:0)+'%'},{passive:true});
+</script></body></html>
