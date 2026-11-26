@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariam Fatima | Portfolio</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #151313;
+  --surface: #241b1b;
+  --surface-hover: #302020;
+  --text: #fff8f7;
+  --muted: #c4b5b5;
+  --accent: #f87171;
+  --accent2: #fca5a5;
+  --border: rgba(255,255,255,0.12);
+  --nav: rgba(21,19,19,0.90);
+  --input: rgba(255,255,255,0.05);
+  --cloud-opacity: 0.16;
+}
+
+[data-theme="light"] {
+  --bg: #fff8f7;
+  --surface: #ffffff;
+  --surface-hover: #feecec;
+  --text: #292121;
+  --muted: #6b5b5b;
+  --accent: #b91c1c;
+  --accent2: #dc2626;
+  --border: rgba(127,29,29,0.15);
+  --nav: rgba(255,248,247,0.92);
+  --input: #ffffff;
+  --cloud-opacity: 0.12;
+}
+
+body {
+  background: var(--bg);
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 0.35s, color 0.35s;
+}
+
+/* WORD CLOUD */
+
+#word-cloud {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--cloud-opacity);
+}
+
+.word {
+  position: absolute;
+  font-weight: bold;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.word-inner {
+  display: block;
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translate(0,0) rotate(-15deg); }
+  50% { transform: translate(45px,-35px) rotate(10deg); }
+  100% { transform: translate(-25px,40px) rotate(-8deg); }
+}
+
+/* NAVBAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  gap: 15px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+/* GENERAL */
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  padding: 110px 10%;
+  scroll-margin-top: 65px;
+}
+
+.section-title {
+  font-size: clamp(30px, 5vw, 45px);
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.section-title span {
+  color: var(--accent);
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* HERO */
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 9px 20px;
+  border-radius: 30px;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.hero-content h1 {
+  font-size: clamp(40px, 7vw, 75px);
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  color: var(--accent);
+}
+
+.hero-content h2 {
+  margin-bottom: 20px;
+  font-size: clamp(18px, 3vw, 25px);
+}
+
+.hero-content p {
+  font-size: 18px;
+  max-width: 650px;
+  margin: 0 auto 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 27px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 7px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.secondary {
+  border: 1px solid var(--accent);
+  color: var(--text);
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+}
+
+/* PROJECTS */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 0 0 28px;
+  overflow: hidden;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #39202b, #171827);
+}
+
+.project-image::before,
+.project-image::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 50%;
+}
+
+.project-image::before {
+  width: 185px;
+  height: 185px;
+  right: -36px;
+  top: -72px;
+}
+
+.project-image::after {
+  width: 115px;
+  height: 115px;
+  left: -40px;
+  bottom: -60px;
+}
+
+.project-artwork {
+  position: relative;
+  z-index: 1;
+  width: min(76%, 260px);
+  padding: 22px 18px;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 12px;
+  background: rgba(15,15,25,0.58);
+  color: #fff8f7;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.project-artwork strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.project-artwork span {
+  color: #fca5a5;
+  font-size: 12px;
+}
+
+.art-dossier {
+  background: linear-gradient(135deg, #3c2343, #172b3b);
+}
+
+.art-subway {
+  background: linear-gradient(135deg, #173b42, #272143);
+}
+
+.art-chatbot {
+  background: linear-gradient(135deg, #492526, #202b42);
+}
+
+.art-iot {
+  background: linear-gradient(135deg, #1d3c3b, #1c253c);
+}
+
+.art-placeholder {
+  background: linear-gradient(135deg, #302a38, #20232f);
+}
+
+.project-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 28px 0;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+}
+
+.project-card .number {
+  color: var(--accent);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.project-card h3 {
+  margin: 18px 0 12px;
+}
+
+.tech {
+  color: var(--accent2);
+  font-size: 12px;
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+.project-card a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  margin-top: 18px;
+  font-weight: bold;
+}
+
+/* EXPERIENCE */
+
+.timeline {
+  position: relative;
+  max-width: 850px;
+  margin: auto;
+  padding-left: 35px;
+}
+
+.timeline::before,
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+}
+
+.timeline::before {
+  background: var(--border);
+}
+
+.timeline::after {
+  background: var(--accent);
+  transform: scaleY(var(--timeline-progress, 0));
+  transform-origin: top;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 45px;
+  padding: 25px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -43px;
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.timeline-item h3 {
+  margin: 12px 0;
+}
+
+.timeline-item ul {
+  padding-left: 20px;
+  margin-top: 15px;
+}
+
+.timeline-item li {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.date {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+/* ACHIEVEMENTS */
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.achievement {
+  text-align: center;
+  padding: 35px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.achievement:hover {
+  transform: translateY(-7px);
+  border-color: var(--accent);
+}
+
+.achievement h2 {
+  color: var(--accent);
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.certificate-heading {
+  margin: 55px 0 25px;
+  text-align: center;
+  font-size: clamp(22px, 3vw, 30px);
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.certificate-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--surface);
+  transition: 0.3s;
+}
+
+.certificate-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.certificate-preview {
+  min-height: 160px;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #39202b, #22243a);
+  text-align: center;
+}
+
+.certificate-preview span {
+  display: block;
+  color: #fca5a5;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.certificate-card h3 {
+  padding: 18px 20px 6px;
+  font-size: 17px;
+}
+
+.certificate-card p {
+  padding: 0 20px 20px;
+  font-size: 13px;
+}
+
+/* BLOG */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.blog-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--accent);
+}
+
+.blog-card small {
+  color: var(--accent);
+}
+
+.blog-card h3 {
+  margin: 15px 0;
+}
+
+.blog-card a {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+/* CONTACT */
+
+.contact-container {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.contact-links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  display: grid;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 16px;
+  background: var(--input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  outline: 1px solid var(--accent);
+}
+
+.send-button {
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.send-button:hover {
+  transform: translateY(-3px);
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* MOBILE */
+
+@media(max-width: 1000px) {
+  nav {
+    padding: 18px 5%;
+  }
+
+  nav ul {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 850px) {
+  .project-grid,
+  .blog-grid,
+  .achievement-grid,
+  .certificate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  section {
+    padding: 90px 7%;
+  }
+
+  .project-grid,
+  .blog-grid,
+  .achievement-grid,
+  .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .word {
+    font-size: 18px !important;
+  }
+
+  .timeline {
+    padding-left: 25px;
+  }
+
+  .timeline-item::before {
+    left: -34px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .timeline::after {
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="word-cloud"></div>
+
+<div class="content">
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">MyPortfolio.</div>
+
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+
+    <li>
+      <button class="theme-toggle" id="themeToggle"
+        type="button" aria-label="Switch to light theme">
+        <span id="themeIcon">☀️</span>
+        <span id="themeLabel">Light</span>
+      </button>
+    </li>
+  </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+
+  <div class="hero-content">
+
+    <span class="tag">WELCOME TO MY PORTFOLIO</span>
+
+    <h1>Hi, I'm <span>Mariam Fatima</span></h1>
+
+    <h2>Computer Science Engineering Student | AI/ML Enthusiast</h2>
+
+    <p>
+      Exploring the intersection of technology, artificial
+      intelligence and creativity. I enjoy building intelligent
+      applications, experimenting with machine learning and
+      transforming ideas into practical solutions.
+    </p>
+
+    <a href="#projects" class="btn primary">Explore My Work</a>
+
+    <a href="#contact" class="btn secondary">Contact Me</a>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+  <h2 class="section-title">My <span>Projects</span></h2>
+
+  <div class="project-grid">
+
+    <div class="project-card">
+
+      <div class="project-image" role="img" aria-label="StoryCosmos AI writing and visual references illustration">
+        <div class="project-artwork"><strong>StoryCosmos</strong><span>AI · Writing · Visuals</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">01</div>
+
+      <h3>StoryCosmos</h3>
+
+      <p>
+        An AI-assisted writing application that analyzes
+        a writer's text in real time and automatically
+        generates relevant visual references, including
+        images and videos.
+      </p>
+
+      <p>
+        Developed a React/Tiptap editor with an LLM-powered
+        text-analysis pipeline, parallel media API queries
+        and backend caching to maintain visual continuity
+        while writing.
+      </p>
+
+      <div class="tech">
+        React · Node.js · LLM APIs
+      </div>
+
+      <a href="https://github.com/MariamF35"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image" role="img" aria-label="Email spam classifier machine learning illustration">
+        <div class="project-artwork"><strong>Spam Classifier</strong><span>Machine Learning · NLP</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">02</div>
+
+      <h3>Email Spam Classifier</h3>
+
+      <p>
+        A machine learning model that classifies emails
+        as spam or ham using TF-IDF vectorization and
+        supervised learning algorithms.
+      </p>
+
+      <p>
+        Includes text preprocessing, cleaning, tokenization,
+        stop-word removal, feature extraction and evaluation
+        of classification models using accuracy and precision.
+      </p>
+
+      <div class="tech">
+        Python · Scikit-learn · TF-IDF
+      </div>
+
+      <a href="https://github.com/MariamF35"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-iot" role="img" aria-label="IoT heart rate monitor illustration">
+        <div class="project-artwork"><strong>Heart Rate Monitor</strong><span>IoT · Sensors · Health</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">03</div>
+
+      <h3>IoT-based Heart Rate Monitoring System</h3>
+
+      <p>
+        An IoT-based heart rate monitoring system using
+        a pulse sensor to measure and track heart rate
+        and detect arrhythmia in real time.
+      </p>
+
+      <p>
+        Integrated sensor hardware with a microcontroller
+        and displayed readings on a dashboard for
+        continuous monitoring.
+      </p>
+
+      <div class="tech">
+        Arduino · IoT · Sensors
+      </div>
+
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-dossier" role="img" aria-label="Dossier AI resume analyzer illustration">
+        <div class="project-artwork"><strong>Dossier</strong><span>AI · Resume Analyzer</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">04</div>
+      <h3>Dossier — AI Resume Analyzer</h3>
+      <p>An AI-powered resume analysis concept designed to help review and improve application materials.</p>
+      <div class="tech">AI · Resume Analysis</div>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-subway" role="img" aria-label="Subway Surfers computer vision game illustration">
+        <div class="project-artwork"><strong>Subway Surfers</strong><span>Computer Vision · Gaming</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">05</div>
+      <h3>Subway Surfers with Computer Vision</h3>
+      <p>A Subway Surfers project exploring how computer vision can be used to interact with gameplay.</p>
+      <div class="tech">Computer Vision</div>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-chatbot" role="img" aria-label="Chatbot project illustration">
+        <div class="project-artwork"><strong>Chatbot</strong><span>Conversational AI</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">06</div>
+      <h3>Chatbot</h3>
+      <p>Project details and technologies will be added soon.</p>
+      <div class="tech">Details coming soon</div>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
+        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">07</div>
+      <h3>Project details coming soon</h3>
+      <p>This space is ready for another project description, technologies, and links.</p>
+      <div class="tech">Add project technologies</div>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
+        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">08</div>
+      <h3>Project details coming soon</h3>
+      <p>This space is ready for another project description, technologies, and links.</p>
+      <div class="tech">Add project technologies</div>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
+        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">09</div>
+      <h3>Project details coming soon</h3>
+      <p>This space is ready for another project description, technologies, and links.</p>
+      <div class="tech">Add project technologies</div>
+      </div>
+
+    </div>
+
+    <div class="project-card">
+
+      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
+        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      </div>
+
+      <div class="project-card-content">
+      <div class="number">10</div>
+      <h3>Project details coming soon</h3>
+      <p>This space is ready for another project description, technologies, and links.</p>
+      <div class="tech">Add project technologies</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+  <h2 class="section-title">My <span>Experience</span></h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+
+      <span class="date">April 2026 – August 2026</span>
+
+      <h3>Machine Learning and Computer Vision Intern</h3>
+
+      <p>
+        International Institute of Information Technology,
+        Hyderabad
+      </p>
+
+      <ul>
+
+        <li>
+          Developed modular Generative AI video pipelines
+          during an advanced research internship, working
+          on parameter-efficient domain adaptation and
+          evaluating generative video workflows across
+          different domains.
+        </li>
+
+        <li>
+          Built and evaluated computer vision pipelines
+          for real-time object detection and semantic
+          segmentation, including custom YOLO datasets
+          from raw video, data annotation, model training
+          and inference optimization.
+        </li>
+
+        <li>
+          Developed a fitness application integrating
+          computer vision with an interactive game-like
+          experience.
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="timeline-item">
+
+      <span class="date">February 2026</span>
+
+      <h3>Data Analytics Intern</h3>
+
+      <p>Tata Group | Forage (Online)</p>
+
+      <ul>
+
+        <li>
+          Completed an AI-powered data analytics simulation
+          for the Financial Services team at Tata iQ.
+        </li>
+
+        <li>
+          Performed exploratory data analysis using GenAI
+          tools to evaluate data quality, identify risk
+          indicators and derive insights.
+        </li>
+
+        <li>
+          Proposed a no-code predictive model framework
+          to assess customer delinquency risk.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ACHIEVEMENTS -->
+
+<section id="achievements">
+
+  <h2 class="section-title">My <span>Achievements</span></h2>
+
+  <!-- <div class="achievement-grid">
+
+    <div class="achievement">
+
+      <h2>8.11</h2>
+
+      <p>Current CGPA</p>
+
+    </div>
+
+    <div class="achievement">
+
+      <h2>2</h2>
+
+      <p>Internship Experiences</p>
+
+    </div>
+
+    <div class="achievement">
+
+      <h2>6</h2>
+
+      <p>Projects Listed</p>
+
+    </div>
+
+  </div> -->
+
+  <h3 class="certificate-heading">Certificates &amp; Recognition</h3>
+
+  <div class="certificate-grid">
+
+    <div class="certificate-card">
+      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
+        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      </div>
+      <h3>IIITH Certificate 1</h3>
+      <p>Certificate preview coming soon.</p>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
+        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      </div>
+      <h3>IIITH Certificate 2</h3>
+      <p>Certificate preview coming soon.</p>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
+        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      </div>
+      <h3>IIT Madras Certificate 1</h3>
+      <p>Certificate preview coming soon.</p>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
+        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      </div>
+      <h3>Cureus Journals</h3>
+      <p>Certificate or publication details coming soon.</p>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview" role="img" aria-label="Award image placeholder">
+        <div>Achievement scan<span>Add certificate image or PDF</span></div>
+      </div>
+      <h3>1st Place — Stanley Ideathon</h3>
+      <p>Award preview coming soon.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BLOG -->
+
+<section id="blog">
+
+  <h2 class="section-title">Latest <span>Blogs</span></h2>
+
+  <div class="blog-grid">
+
+    <div class="blog-card">
+
+      <small>ARTIFICIAL INTELLIGENCE</small>
+
+      <h3>Building StoryCosmos: Where AI Meets Creative Writing</h3>
+
+      <p>
+        Exploring how large language models can understand
+        written scenes and generate relevant visual references
+        to make the creative writing process more immersive.
+      </p>
+
+      <a href="blog/storycosmos.html">Read Article →</a>
+
+    </div>
+
+    <div class="blog-card">
+
+      <small>COMPUTER VISION</small>
+
+      <h3>Exploring Computer Vision Beyond Object Detection</h3>
+
+      <p>
+        My experience working with YOLO datasets,
+        real-time object detection, semantic segmentation
+        and practical computer vision applications.
+      </p>
+
+      <a href="blog/computer-vision.html">Read Article →</a>
+
+    </div>
+
+    <div class="blog-card">
+
+      <small>MACHINE LEARNING</small>
+
+      <h3>From Data to Decisions: My Machine Learning Journey</h3>
+
+      <p>
+        Exploring data preprocessing, feature extraction,
+        model evaluation and how machine learning can
+        transform raw information into meaningful insights.
+      </p>
+
+      <a href="blog/machine-learning.html">Read Article →</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <h2 class="section-title">Contact <span>Me</span></h2>
+
+  <div class="contact-container">
+
+    <p>
+      Have an idea, project, research opportunity
+      or collaboration in mind?
+      Let's connect and create something amazing together.
+    </p>
+
+    <div class="contact-links">
+
+      <a href="mailto:mariamfworks@gmail.com">
+        Email
+      </a>
+
+      <a href="https://www.linkedin.com/in/mariamf136/"
+         target="_blank" rel="noopener noreferrer">
+        LinkedIn
+      </a>
+
+      <a href="https://github.com/MariamF35"
+         target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+
+    </div>
+
+    <div class="contact-form">
+
+      <input type="text" id="name"
+        placeholder="Your Name" required>
+
+      <input type="email" id="email"
+        placeholder="Your Email" required>
+
+      <input type="text" id="subject"
+        placeholder="Subject">
+
+      <textarea id="message"
+        placeholder="Your Message" required></textarea>
+
+      <button class="send-button"
+        type="button" onclick="sendMessage()">
+        Send Message →
+      </button>
+
+    </div>
+
+    <p style="margin-top:25px;">
+      Email: mariamfworks@gmail.com
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  © 2026 Mariam Fatima. All Rights Reserved.
+
+  <p>Designed with creativity and passion.</p>
+
+</footer>
+
+</div>
+
+<script>
+
+// THEME SWITCHER
+
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeLabel = document.getElementById("themeLabel");
+
+function applyTheme(theme) {
+
+  document.documentElement.setAttribute("data-theme", theme);
+
+  if (theme === "light") {
+
+    themeIcon.textContent = "🌙";
+    themeLabel.textContent = "Dark";
+
+    themeToggle.setAttribute(
+      "aria-label",
+      "Switch to dark theme"
+    );
+
+  } else {
+
+    themeIcon.textContent = "☀️";
+    themeLabel.textContent = "Light";
+
+    themeToggle.setAttribute(
+      "aria-label",
+      "Switch to light theme"
+    );
+
+  }
+
+  localStorage.setItem("portfolio-theme", theme);
+
+}
+
+const savedTheme =
+  localStorage.getItem("portfolio-theme") || "dark";
+
+applyTheme(savedTheme);
+
+themeToggle.addEventListener("click", () => {
+
+  const currentTheme =
+    document.documentElement.getAttribute("data-theme");
+
+  applyTheme(currentTheme === "dark" ? "light" : "dark");
+
+});
+
+
+// WORD CLOUD
+
+const words = [
+
+  "Creativity",
+  "Innovation",
+  "Sustainability",
+  "Technology",
+  "Artificial Intelligence",
+  "Machine Learning",
+  "Computer Vision",
+  "Design",
+  "Ideas",
+  "Future",
+  "Learning",
+  "Explore",
+  "Growth",
+  "Knowledge",
+  "Vision",
+  "Discover",
+  "Passion",
+  "Create",
+  "Possibilities",
+  "Curiosity",
+  "Experience",
+  "Transform"
+
+];
+
+const colors = [
+  "#f87171",
+  "#fca5a5",
+  "#dc2626",
+  "#fecaca",
+  "#fb7185"
+];
+
+const cloud = document.getElementById("word-cloud");
+const elements = [];
+
+words.forEach((word) => {
+
+  const outer = document.createElement("div");
+  const inner = document.createElement("span");
+
+  outer.className = "word";
+  inner.className = "word-inner";
+
+  inner.innerText = word;
+
+  outer.style.left = Math.random() * 85 + "%";
+  outer.style.top = Math.random() * 90 + "%";
+
+  inner.style.color =
+    colors[Math.floor(Math.random() * colors.length)];
+
+  inner.style.fontSize =
+    (20 + Math.random() * 35) + "px";
+
+  inner.style.animationDuration =
+    (2 + Math.random() * 4) + "s";
+
+  inner.style.animationDelay =
+    Math.random() * -5 + "s";
+
+  outer.appendChild(inner);
+  cloud.appendChild(outer);
+
+  elements.push({outer, inner});
+
+});
+
+
+// EXPERIENCE TIMELINE PROGRESS
+
+const timeline = document.querySelector(".timeline");
+let timelineFrame = false;
+
+function updateTimelineProgress() {
+
+  if (!timeline) return;
+
+  const timelineBounds = timeline.getBoundingClientRect();
+  const viewportAnchor = window.innerHeight * 0.72;
+  const progress =
+    (viewportAnchor - timelineBounds.top) / timelineBounds.height;
+
+  timeline.style.setProperty(
+    "--timeline-progress",
+    Math.max(0, Math.min(1, progress))
+  );
+
+}
+
+function scheduleTimelineProgress() {
+
+  if (timelineFrame) return;
+
+  timelineFrame = true;
+
+  requestAnimationFrame(() => {
+    updateTimelineProgress();
+    timelineFrame = false;
+  });
+
+}
+
+window.addEventListener("scroll", scheduleTimelineProgress, {passive: true});
+window.addEventListener("resize", scheduleTimelineProgress);
+updateTimelineProgress();
+
+
+// SCROLL PARALLAX
+
+let scrollFrame = false;
+
+window.addEventListener("scroll", () => {
+
+  if (scrollFrame) return;
+
+  scrollFrame = true;
+
+  requestAnimationFrame(() => {
+
+    const scroll = window.scrollY;
+
+    elements.forEach(({outer}, index) => {
+
+      const depth = 0.03 + (index % 5) * 0.025;
+
+      outer.style.transform =
+        `translateY(${-scroll * depth}px)`;
+
+    });
+
+    scrollFrame = false;
+
+  });
+
+}, {passive: true});
+
+
+// CONTACT FORM
+
+function sendMessage() {
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const body = document.getElementById("message").value.trim();
+
+  if (!name || !email || !body) {
+
+    alert("Please fill in your name, email and message.");
+    return;
+
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+    alert("Please enter a valid email address.");
+    return;
+
+  }
+
+  const mailto =
+    "mailto:mariamfworks@gmail.com" +
+    "?subject=" + encodeURIComponent(
+      subject || "Portfolio Enquiry"
+    ) +
+    "&body=" + encodeURIComponent(
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\n\n" + body
+    );
+
+  window.location.href = mailto;
+
+}
+
+</script>
+
+</body>
+</html>
