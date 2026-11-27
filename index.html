@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="img/fav.png">
 <title>Mariam Fatima | Portfolio</title>
 
 <style>
@@ -262,77 +263,16 @@ p {
 
 .project-image {
   position: relative;
-  min-height: 190px;
+  
+  height: 190px;
   overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #39202b, #171827);
 }
 
-.project-image::before,
-.project-image::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(255,255,255,0.28);
-  border-radius: 50%;
-}
-
-.project-image::before {
-  width: 185px;
-  height: 185px;
-  right: -36px;
-  top: -72px;
-}
-
-.project-image::after {
-  width: 115px;
-  height: 115px;
-  left: -40px;
-  bottom: -60px;
-}
-
-.project-artwork {
-  position: relative;
-  z-index: 1;
-  width: min(76%, 260px);
-  padding: 22px 18px;
-  border: 1px solid rgba(255,255,255,0.28);
-  border-radius: 12px;
-  background: rgba(15,15,25,0.58);
-  color: #fff8f7;
-  text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-}
-
-.project-artwork strong {
+.project-image img {
   display: block;
-  font-size: 18px;
-  margin-bottom: 7px;
-}
-
-.project-artwork span {
-  color: #fca5a5;
-  font-size: 12px;
-}
-
-.art-dossier {
-  background: linear-gradient(135deg, #3c2343, #172b3b);
-}
-
-.art-subway {
-  background: linear-gradient(135deg, #173b42, #272143);
-}
-
-.art-chatbot {
-  background: linear-gradient(135deg, #492526, #202b42);
-}
-
-.art-iot {
-  background: linear-gradient(135deg, #1d3c3b, #1c253c);
-}
-
-.art-placeholder {
-  background: linear-gradient(135deg, #302a38, #20232f);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-card-content {
@@ -496,19 +436,19 @@ p {
 }
 
 .certificate-preview {
-  min-height: 160px;
+  height: 180px;
   display: grid;
   place-items: center;
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(135deg, #39202b, #22243a);
   text-align: center;
 }
 
-.certificate-preview span {
+.certificate-preview img {
   display: block;
-  color: #fca5a5;
-  font-size: 13px;
-  margin-top: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .certificate-card h3 {
@@ -636,6 +576,12 @@ footer {
   color: var(--muted);
 }
 
+.footer-logos img{
+  width: 50px; height: 50px;
+  object-fit: contain; margin: 10px;
+  vertical-align: middle;
+}
+
 /* MOBILE */
 
 @media(max-width: 1000px) {
@@ -725,7 +671,7 @@ footer {
 
 <nav>
 
-  <div class="logo">MyPortfolio.</div>
+  <div class="logo">MariamF35</div>
 
   <ul>
     <li><a href="#hero">Home</a></li>
@@ -783,8 +729,8 @@ footer {
 
     <div class="project-card">
 
-      <div class="project-image" role="img" aria-label="StoryCosmos AI writing and visual references illustration">
-        <div class="project-artwork"><strong>StoryCosmos</strong><span>AI · Writing · Visuals</span></div>
+      <div class="project-image">
+        <img src="img/storycosmos.gif" alt="StoryCosmos project preview">
       </div>
 
       <div class="project-card-content">
@@ -810,7 +756,7 @@ footer {
         React · Node.js · LLM APIs
       </div>
 
-      <a href="https://github.com/MariamF35"
+      <a href="https://github.com/MariamF35/StoryCosmos"
          target="_blank" rel="noopener noreferrer">
         GitHub Repository →
       </a>
@@ -820,8 +766,8 @@ footer {
 
     <div class="project-card">
 
-      <div class="project-image" role="img" aria-label="Email spam classifier machine learning illustration">
-        <div class="project-artwork"><strong>Spam Classifier</strong><span>Machine Learning · NLP</span></div>
+      <div class="project-image">
+        <img src="img/emailspam.png" alt="Email Spam Classifier project preview">
       </div>
 
       <div class="project-card-content">
@@ -845,7 +791,7 @@ footer {
         Python · Scikit-learn · TF-IDF
       </div>
 
-      <a href="https://github.com/MariamF35"
+      <a href="https://github.com/MariamF35/My_Projects/blob/main/Email%20Spam%20Classifier/SPAM_EMAIL_CLASSIFICATION.ipynb"
          target="_blank" rel="noopener noreferrer">
         GitHub Repository →
       </a>
@@ -855,21 +801,19 @@ footer {
 
     <div class="project-card">
 
-      <div class="project-image art-iot" role="img" aria-label="IoT heart rate monitor illustration">
-        <div class="project-artwork"><strong>Heart Rate Monitor</strong><span>IoT · Sensors · Health</span></div>
+      <div class="project-image">
+        <img src="img/IoTHeart.png" alt="Heart Rate Monitoring project preview">
       </div>
 
       <div class="project-card-content">
       <div class="number">03</div>
 
       <h3>IoT-based Heart Rate Monitoring System</h3>
-
       <p>
         An IoT-based heart rate monitoring system using
         a pulse sensor to measure and track heart rate
         and detect arrhythmia in real time.
       </p>
-
       <p>
         Integrated sensor hardware with a microcontroller
         and displayed readings on a dashboard for
@@ -890,8 +834,8 @@ footer {
 
     <div class="project-card">
 
-      <div class="project-image art-dossier" role="img" aria-label="Dossier AI resume analyzer illustration">
-        <div class="project-artwork"><strong>Dossier</strong><span>AI · Resume Analyzer</span></div>
+      <div class="project-image">
+        <img src="img/DossierAIResumeAnalyzer.PNG" alt="Dossier AI Resume Analyzer project preview">
       </div>
 
       <div class="project-card-content">
@@ -899,14 +843,18 @@ footer {
       <h3>Dossier — AI Resume Analyzer</h3>
       <p>An AI-powered resume analysis concept designed to help review and improve application materials.</p>
       <div class="tech">AI · Resume Analysis</div>
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
       </div>
 
     </div>
 
     <div class="project-card">
 
-      <div class="project-image art-subway" role="img" aria-label="Subway Surfers computer vision game illustration">
-        <div class="project-artwork"><strong>Subway Surfers</strong><span>Computer Vision · Gaming</span></div>
+      <div class="project-image">
+        <img src="img/sdgppr.PNG" alt="Subway Surfers Computer Vision project preview">
       </div>
 
       <div class="project-card-content">
@@ -914,14 +862,18 @@ footer {
       <h3>Subway Surfers with Computer Vision</h3>
       <p>A Subway Surfers project exploring how computer vision can be used to interact with gameplay.</p>
       <div class="tech">Computer Vision</div>
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
       </div>
 
     </div>
 
     <div class="project-card">
 
-      <div class="project-image art-chatbot" role="img" aria-label="Chatbot project illustration">
-        <div class="project-artwork"><strong>Chatbot</strong><span>Conversational AI</span></div>
+      <div class="project-image">
+        <img src="img/sdgppr.PNG" alt="Chatbot project preview">
       </div>
 
       <div class="project-card-content">
@@ -929,14 +881,18 @@ footer {
       <h3>Chatbot</h3>
       <p>Project details and technologies will be added soon.</p>
       <div class="tech">Details coming soon</div>
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
       </div>
 
     </div>
 
-    <div class="project-card">
+    <!--<div class="project-card">
 
-      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
-        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      <div class="project-image">
+        <img src="img/sdgppr.PNG" alt="Project preview">
       </div>
 
       <div class="project-card-content">
@@ -944,14 +900,18 @@ footer {
       <h3>Project details coming soon</h3>
       <p>This space is ready for another project description, technologies, and links.</p>
       <div class="tech">Add project technologies</div>
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
       </div>
 
     </div>
 
     <div class="project-card">
 
-      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
-        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      <div class="project-image">
+        <img src="img/sdgppr.PNG" alt="Project preview">
       </div>
 
       <div class="project-card-content">
@@ -959,14 +919,18 @@ footer {
       <h3>Project details coming soon</h3>
       <p>This space is ready for another project description, technologies, and links.</p>
       <div class="tech">Add project technologies</div>
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
       </div>
 
     </div>
 
     <div class="project-card">
 
-      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
-        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      <div class="project-image">
+        <img src="img/sdgppr.PNG" alt="Project preview">
       </div>
 
       <div class="project-card-content">
@@ -974,14 +938,18 @@ footer {
       <h3>Project details coming soon</h3>
       <p>This space is ready for another project description, technologies, and links.</p>
       <div class="tech">Add project technologies</div>
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
       </div>
 
     </div>
 
     <div class="project-card">
 
-      <div class="project-image art-placeholder" role="img" aria-label="Illustrated placeholder for a future project">
-        <div class="project-artwork"><strong>Coming Soon</strong><span>Project preview</span></div>
+      <div class="project-image">
+        <img src="img/sdgppr.PNG" alt="Project preview">
       </div>
 
       <div class="project-card-content">
@@ -989,9 +957,13 @@ footer {
       <h3>Project details coming soon</h3>
       <p>This space is ready for another project description, technologies, and links.</p>
       <div class="tech">Add project technologies</div>
+      <a href="https://github.com/MariamF35/IoT-Based-Heart-Rate-Monitoring-and-Arrhythmia-Detection-Using-ESP32-and-ML"
+         target="_blank" rel="noopener noreferrer">
+        GitHub Repository →
+      </a>
       </div>
 
-    </div>
+    </div> -->
 
   </div>
 
@@ -1117,40 +1089,40 @@ footer {
   <div class="certificate-grid">
 
     <div class="certificate-card">
-      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
-        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      <div class="certificate-preview">
+        <img src="img/sdgppr.PNG" alt="IIITH Certificate 1">
       </div>
       <h3>IIITH Certificate 1</h3>
       <p>Certificate preview coming soon.</p>
     </div>
 
     <div class="certificate-card">
-      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
-        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      <div class="certificate-preview">
+        <img src="img/sdgppr.PNG" alt="IIITH Certificate 2">
       </div>
       <h3>IIITH Certificate 2</h3>
       <p>Certificate preview coming soon.</p>
     </div>
 
     <div class="certificate-card">
-      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
-        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      <div class="certificate-preview">
+        <img src="img/sdgppr.PNG" alt="IIT Madras Certificate 1">
       </div>
       <h3>IIT Madras Certificate 1</h3>
       <p>Certificate preview coming soon.</p>
     </div>
 
     <div class="certificate-card">
-      <div class="certificate-preview" role="img" aria-label="Certificate image placeholder">
-        <div>Certificate scan<span>Add certificate image or PDF</span></div>
+      <div class="certificate-preview">
+        <img src="img/sdgppr.PNG" alt="Cureus Journals certificate">
       </div>
       <h3>Cureus Journals</h3>
       <p>Certificate or publication details coming soon.</p>
     </div>
 
     <div class="certificate-card">
-      <div class="certificate-preview" role="img" aria-label="Award image placeholder">
-        <div>Achievement scan<span>Add certificate image or PDF</span></div>
+      <div class="certificate-preview">
+        <img src="img/sdgppr.PNG" alt="Stanley Ideathon award">
       </div>
       <h3>1st Place — Stanley Ideathon</h3>
       <p>Award preview coming soon.</p>
@@ -1216,6 +1188,22 @@ footer {
 
     </div>
 
+    <div class="blog-card">
+
+      <small>Maruti Suzuki Pitch</small>
+
+      <h3>From Data to Decisions: My Machine Learning Journey</h3>
+
+      <p>
+        Exploring data preprocessing, feature extraction,
+        model evaluation and how machine learning can
+        transform raw information into meaningful insights.
+      </p>
+
+      <a href="blog/MarutiSuzukipitch.html">Read Article →</a>
+
+    </div>
+
   </div>
 
 </section>
@@ -1234,7 +1222,7 @@ footer {
       Let's connect and create something amazing together.
     </p>
 
-    <div class="contact-links">
+    <!--<div class="contact-links">
 
       <a href="mailto:mariamfworks@gmail.com">
         Email
@@ -1250,7 +1238,7 @@ footer {
         GitHub
       </a>
 
-    </div>
+    </div> -->
 
     <div class="contact-form">
 
@@ -1282,6 +1270,10 @@ footer {
 </section>
 
 <footer>
+<a href="https://linkedin.com/in/mariamf136" class="footer-logos"><img src="img/linkedin.png" alt="LinkedIn"></a>
+<a href="https://github.com/MariamF35" class="footer-logos"><img src="img/github.png"></a>
+<a href="https://dev.to/MariamFatima" class="footer-logos"><img src="img/dev.png"></a>
+<br> <br>
 
   © 2026 Mariam Fatima. All Rights Reserved.
 
